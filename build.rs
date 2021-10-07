@@ -15,7 +15,6 @@ fn main() {
             if env::var("CARGO_FEATURE_UNWIND").is_ok() {
                 println!("cargo:rustc-cfg=use_libunwind");
                 if env::var("CARGO_CFG_TARGET_ENV").unwrap() == "musl"
-                    && env::var("CARGO_CFG_TARGET_VENDOR").unwrap() != "alpine"
                 {
                     println!("cargo:rustc-link-search=native=/usr/local/lib");
                     println!(
